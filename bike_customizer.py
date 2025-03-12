@@ -49,13 +49,13 @@ motor_power_1 = st.sidebar.slider(
     help="Mayor par motor significa mejor aceleración y capacidad para subir pendientes"
 )
 
-# Control deslizante de Cadre ENVSO para bicicleta 1 (cambiado a porcentaje)
+# Control deslizante de Cadre ENVSO para bicicleta 1 (cambiado a rango 20-30%)
 frame_size_1 = st.sidebar.slider(
     "Cadre ENVSO (%) - Nuestra Bicicleta",
-    min_value=50,
-    max_value=100,
-    value=75,
-    step=5,
+    min_value=20,
+    max_value=30,
+    value=25,
+    step=1,
     help="Porcentaje de Cadre ENVSO - un valor más alto indica mejor calidad"
 )
 
@@ -95,13 +95,13 @@ motor_power_2 = st.sidebar.slider(
     help="Mayor par motor significa mejor aceleración y capacidad para subir pendientes"
 )
 
-# Control deslizante de Cadre ENVSO para bicicleta 2 (cambiado a porcentaje)
+# Control deslizante de Cadre ENVSO para bicicleta 2 (cambiado a rango 20-30%)
 frame_size_2 = st.sidebar.slider(
     "Cadre ENVSO (%) - Bicicleta Competidor",
-    min_value=50,
-    max_value=100,
-    value=65,
-    step=5,
+    min_value=20,
+    max_value=30,
+    value=22,
+    step=1,
     help="Porcentaje de Cadre ENVSO - un valor más alto indica mejor calidad"
 )
 
@@ -204,12 +204,12 @@ labels = ['Precio', 'Batería', 'Motor', 'Cadre ENVSO']
 price_norm_1 = price_range_1 / 5000
 battery_norm_1 = battery_capacity_1 / 1000
 motor_norm_1 = motor_power_1 / 100
-frame_norm_1 = frame_size_1 / 100  # Ahora normalizado de 0-1 directamente
+frame_norm_1 = (frame_size_1 - 20) / 10  # Normalizar de 20-30 a 0-1
 
 price_norm_2 = price_range_2 / 5000
 battery_norm_2 = battery_capacity_2 / 1000
 motor_norm_2 = motor_power_2 / 100
-frame_norm_2 = frame_size_2 / 100  # Ahora normalizado de 0-1 directamente
+frame_norm_2 = (frame_size_2 - 20) / 10  # Normalizar de 20-30 a 0-1
 
 values_1 = [price_norm_1, battery_norm_1, motor_norm_1, frame_norm_1]
 values_2 = [price_norm_2, battery_norm_2, motor_norm_2, frame_norm_2]
